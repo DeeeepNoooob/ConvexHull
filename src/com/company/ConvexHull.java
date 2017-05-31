@@ -29,6 +29,7 @@ public class ConvexHull {
                 this.up.add(points.get(i));
             else
                 this.down.add(points.get(i));
+
         }
     }
 
@@ -69,10 +70,8 @@ public class ConvexHull {
         if (p.size() > 0) {
             Point max = p.get(0);
             int smax = 0;
-            int d;
             int x3, y3;
             int k = (y2 - y1) / (x2 - x1);
-            int b = y1 - k * x1;
             int s;
             for (int i = 0; i < p.size(); i++) {
                 x3 = p.get(i).getX();
@@ -104,13 +103,11 @@ public class ConvexHull {
             if (left.size() > 0) {
                 plmax = findu(p1, pmax, left);
                 if (plmax != null)
-                    this.resultu.add(plmax);
                 chu(p1, pmax, left);
             }
             if (right.size() > 0) {
                 prmax = findu(pmax, p2, right);
                 if (prmax != null)
-                    this.resultu.add(prmax);
                 chu(pmax, p2, right);
             }
         }
@@ -133,13 +130,11 @@ public class ConvexHull {
             if (left.size() > 0) {
                 plmax = findd(p1, pmax, left);
                 if (plmax != null)
-                    this.resultd.add(plmax);
                 chd(p1, pmax, left);
             }
             if (right.size() > 0) {
                 prmax = findd(pmax, p2, right);
                 if (prmax != null)
-                    this.resultd.add(prmax);
                 chd(pmax, p2, right);
             }
         }
@@ -166,17 +161,12 @@ public class ConvexHull {
     public static void main(String[] args) {
         ConvexHull convexHull = new ConvexHull();
 
-        convexHull.convexhull(10);
+        convexHull.convexhull(20);
         for (int i = 0; i < convexHull.result.size(); i++) {
             int x = convexHull.result.get(i).getX();
             int y = convexHull.result.get(i).getY();
             System.out.println("坐标：" + x + "，" + y);
         }
-//        convexHull.chu(convexHull.points.get(0), convexHull.points.get(convexHull.points.size() - 1), convexHull.up);
-//        convexHull.chd(convexHull.points.get(0), convexHull.points.get(convexHull.points.size() - 1), convexHull.down);
-//        for (int i = 0; i < convexHull.up.size(); i++)
-//            System.out.println(convexHull.up.get(i).getX() + " " + convexHull.up.get(i).getY());
-        // write your code here
         new Diagram(convexHull);
     }
 }
