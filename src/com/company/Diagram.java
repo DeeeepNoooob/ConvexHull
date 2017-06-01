@@ -20,10 +20,10 @@ public class Diagram extends JFrame {
         result.addAll(ch.result);
         setLocationRelativeTo(getOwner());
         setTitle("Convex Hull");
-        Container p = getContentPane();
+//        Container p = getContentPane();
         setSize(400, 400);
         setVisible(true);
-        p.setBackground(rectColor);
+//        p.setBackground(rectColor);
         setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try {
@@ -33,10 +33,10 @@ public class Diagram extends JFrame {
         }
 
         g = this.getGraphics();
-        paintComponent(g);
+        paint(g);
     }
 
-    public void paintComponent(Graphics g) {
+    public void paint(Graphics g) {
         g.setColor(Color.black);
 
 
